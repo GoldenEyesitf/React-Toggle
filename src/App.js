@@ -1,16 +1,12 @@
-import React, { useRef } from "react";
+import React from "react";
 
 export default function App() {
-  const sidebarToggle = useRef(null);
   function toggler() {
-    sidebarToggle.current.addEventListener("click", (event) => {
-      event.preventDefault();
-      document.body.classList.toggle("sb-sidenav-toggled");
-      localStorage.setItem(
-        "sb|sidebar-toggle",
-        document.body.classList.contains("sb-sidenav-toggled")
-      );
-    });
+    document.body.classList.toggle("sb-sidenav-toggled");
+    localStorage.setItem(
+      "sb|sidebar-toggle",
+      document.body.classList.contains("sb-sidenav-toggled")
+    );
   }
   return (
     <section class="sb-nav-fixed">
@@ -23,7 +19,6 @@ export default function App() {
           class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
           id="sidebarToggle"
           href="#!"
-          ref={sidebarToggle}
           onClick={toggler}
         >
           <i class="fas fa-bars"></i>
